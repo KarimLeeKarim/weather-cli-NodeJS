@@ -16,3 +16,19 @@ Without parametrs
 -t [API_KEY] for save Token
     `);
 }
+
+export const printSuccessInfo = (data) => {
+    console.log(`${chalk.bgMagenta('ForeCast for Today')}
+🌃 : ${data.name}
+👅 : ${data.sys.country}
+Description: ${data?.weather[0].description}
+===Main Info===
+🌡  : ${data.main.temp}
+🌊 : ${data.main.sea_level}
+🌧  : ${data.main.humidity}
+===Wind Info==='
+💨 : ${data?.wind?.speed}
+🚨 : ${data?.wind?.deg}
+☄️  : ${data?.wind?.gust}
+`);
+}

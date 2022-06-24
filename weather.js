@@ -2,7 +2,7 @@
 import { getArgs } from "./helpers/args.js";
 import { getWeather } from "./services/api.service.js";
 import { printError, printHelp, printSuccess, printSuccessInfo } from "./services/log.service.js";
-import { saveKeyValue, TOKEN_DICTIONARY } from "./services/storage.service.js";
+import { getKeyValue, saveKeyValue, TOKEN_DICTIONARY } from "./services/storage.service.js";
 
 const saveToken = async (token) => {
     if (!token.length) {
@@ -17,9 +17,23 @@ const saveToken = async (token) => {
     }
 }
 
-const getForeCast = async () => {
+const saveCity = async (city) => {
+    if (!city.length) {
+        printError('Without token')
+        return;
+    }
     try {
-        const weather = await getWeather(TOKEN_DICTIONARY.city);
+        await saveKeyValue(TOKEN_DICTIONARY.city, city)
+        printSuccess('City saved')
+    } catch (e) {
+        printError(e?.message)
+    }
+}
+
+const getForeCast = async () => { 
+    const city = await getKeyValue(TOKEN_DICTIONARY.city);
+    try {
+        const weather = await getWeather(city);
         printSuccessInfo(weather)
     } catch (error) {
         if (error?.response?.status == 404) {
