@@ -4,7 +4,7 @@ The weather cli is simple lightweight app for show forecast
 ###  🔨  Installation ###
 
 ```sh
- $ npm install weather-cli-demo-version
+ $ npm i weather-cli-demo-version
 ```
 
 ###  🥢  Using steps ###
