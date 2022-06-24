@@ -1,6 +1,6 @@
 import axios from 'axios';
-import https from 'https';
 import { getKeyValue, TOKEN_DICTIONARY } from './storage.service.js';
+import 'dotenv/config';
 
 export const getWeather = async (city) => {
     const token = process.env.TOKEN ?? await getKeyValue(TOKEN_DICTIONARY.token);
