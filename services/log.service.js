@@ -18,17 +18,16 @@ Without parametrs
 }
 
 export const printSuccessInfo = (data) => {
+    const result = Object.entries(data.wind)
     console.log(`${chalk.bgMagenta('ForeCast for Today')}
-🌃 : ${data.name}
-👅 : ${data.sys.country}
-Description: ${data?.weather[0].description}
-===Main Info===
-🌡  : ${data.main.temp}
-🌊 : ${data.main.sea_level}
-🌧  : ${data.main.humidity}
-===Wind Info==='
-💨 : ${data?.wind?.speed}
-🚨 : ${data?.wind?.deg}
-☄️  : ${data?.wind?.gust}
-`);
+name of city : ${data?.name}
+language : ${data?.sys?.country}
+description : ${data?.weather[0].description}
+temperature : ${data?.main?.temp}
+sea level : ${data?.main?.sea_level}
+humidity : ${data?.main?.humidity}
+    `);
+    for (const [key, value] of result) {
+        console.log(`${key} : ${value}`);
+    }
 }
