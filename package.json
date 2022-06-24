@@ -1,6 +1,6 @@
 {
-  "name": "weather-cli-demo-version",
-  "version": "1.0.4",
+  "name": "@KarimLeeKarim/weather-cli-demo-version",
+  "version": "1.0.5",
   "description": "CLI for getting weather",
   "main": "weather.js",
   "bin": {
