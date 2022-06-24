@@ -28,6 +28,9 @@
     "url": "",
     "email": "kerimlikerim24@gmail.com"
   },
+  "publishConfig": {
+    "registry":"https://www.npmjs.com/package/weather-cli-demo-version"
+  },
   "dependencies": {
     "axios": "^0.27.2",
     "chalk": "^5.0.1",
